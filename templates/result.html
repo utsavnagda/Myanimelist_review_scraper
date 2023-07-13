@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Review Page</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+
+      <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+</head>
+
+<body>
+
+  <div class="table-users">
+   <div class="header">Reviews</div>
+
+   <table cellspacing="0">
+      <tr>
+         <th>date</th>
+         <th>Anime Name</th>
+         <th>recommendation</th>
+         <th>review</th>
+         <th>Rating </th>
+      </tr>
+         {% for review in review_var %}
+      <tr>
+         <td>{{review['username']}}</td>
+         <td>{{review['date']}}</td>
+         <td>{{review['recommendation']}}</td>
+         <td style="max-width: 350px;
+         max-height: 100px;
+         overflow-y: scroll;
+         overflow-x: hidden;
+         text-overflow: ellipsis;
+         display: -webkit-box;
+         -webkit-line-clamp: 5;
+         -webkit-box-orient: vertical;">{{review['review']}}</td>
+         <td>{{review['rating']}} </td>
+       {% endfor %}
+   </table>
+</div>
+
+
+
+</body>
+
+</html>
